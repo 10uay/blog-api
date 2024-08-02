@@ -17,18 +17,19 @@ const app = express()
 const prodOrigins = process.env.OUTER_URL
 const allowedOrigins = process.env.NODE_ENV === 'prodution' ? prodOrigins : 'http://localhost:5173/'
 
-app.use(cors({
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin)) {
-            console.log(origin, allowedOrigins);
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CROS'))
-        }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}))
+// app.use(cors({
+//     origin: (origin, callback) => {
+//         if (allowedOrigins.includes(origin)) {
+//             console.log(origin, allowedOrigins);
+//             callback(null, true)
+//         } else {
+//             callback(new Error('Not allowed by CROS'))
+//         }
+//     },
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE']
+// }))
+app.use(cors());
 
 app.use(express.json());
 

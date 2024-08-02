@@ -9,6 +9,7 @@
     "start": "node index.js",
     "build": "npm install && npm install --prefix client && npm run build --prefix client --output public"
   },
+  "proxy": "https://blog-louay-api.onrender.com",
   "keywords": [],
   "author": "",
   "license": "ISC",
